@@ -1,0 +1,15 @@
+<h1>Tus tareas</h1>
+
+<p>Añade una nota</p>
+
+<table>
+  <tr>
+    <th><%= 'Completado' %></th>
+    <th><%= 'Tarea' %></th>
+    <th><%= 'Notas' %></th>
+  </tr>
+  <% @tasks.each do |task| %>
+    <td><%= task.finish %></td>
+    <td><%= task.name %></td>
+    <td><%= task.note %></td>
+</table>
