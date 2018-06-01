@@ -1,0 +1,25 @@
+<%= form_for @task do |f| %>
+
+  <p>
+    <%= f.label :Proyecto %>
+    <%= f.collection_select :project_id, Project.all.sort_by(&:name), :id, :name %>
+
+    <%= f.label :Vencimiento %>
+    <%= f.date_field :expiration %>
+
+    <%= f.label :Realizado %>
+    <%= f.check_box :finish %>    
+  </p>  
+  <p>
+    <%= f.label :Tarea %>
+    <%= f.text_field :name %>
+
+    <%= f.label :Necesito %>
+    <%= f.collection_select :requirement, Task.requirements, :first, :first %>
+    
+    <%= f.label :Nota %>
+    <%= f.text_area :note %>
+
+    <%= f.submit %> 
+  </p>
+<% end %>

@@ -1,0 +1,13 @@
+<%= form_for @project do |f| %>
+
+  <p>
+    <%= f.label :Proyecto %>
+    <%= f.text_field :name %>
+ 
+    <%= f.label :Vencimiento %>
+    <%= f.date_field :deadline %>
+ 
+    <%= f.submit %>
+  </p>
+
+<% end %>

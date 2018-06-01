@@ -1,15 +1,7 @@
+<%= link_to 'Inicio', root_path %>
+
 <h1> AÑADE UNA TAREA NUEVA </h1>
 
-<%= form_for @task do |f| %>
-  <p>
-    <%= 'Tarea' %>
-    <%= f.text_field :name %>
-  </p>
-  <p>
-    <%= 'Nota' %>
-    <%= f.text_area :note %>
-  </p>
-  <p>
-    <%= f.submit %> 
-  </p>
-<% end %>
+<p>SI HAY QUE REALIZARLA EN VARIOS PASOS ES UN PROYECTO</p>
+
+<%= render 'form' %>

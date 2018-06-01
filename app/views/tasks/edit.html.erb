@@ -1,0 +1,7 @@
+<%= link_to 'Inicio', root_path %>
+
+<h1> EDITAR TAREA </h1>
+
+<%= render 'form' %>
+
+<%= link_to 'Eliminar', task_path(@task), method: :delete, data: {confirm: '¿Quieres eliminarlo?' } %>

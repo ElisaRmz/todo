@@ -1,0 +1,38 @@
+<%= link_to 'Inicio', root_path %>
+
+<h1> PROYECTO: <%= @project.name %> </h1>
+
+<%= @project.deadline %><br>
+
+<%= link_to 'Editar', edit_project_path(@project) %>
+<%= link_to 'Eliminar', project_path(@project), method: :delete, data: {confirm: '¿deseas eliminar el proyecto?'} %>
+
+<p style="color:red;"> Que salga el proyecto en el que estoy por defecto </p>
+
+<table>
+
+  <tr>
+    <th><%= 'Completado' %></th>
+    <th><%= 'Vencimiento' %></th>
+    <th><%= 'Creado' %></th>
+    <th><%= 'Necesito' %></th>
+    <th><%= 'Tarea' %></th>
+    <th><%= 'Notas' %></th>
+
+  </tr>
+
+  <% @project.tasks&.each do |task| %>
+    <tr>
+      <td><%= task.finish %></td>
+      <td><%= task.expiration&.strftime('%d/%m/%Y') %></td>
+      <td><%= task.created_at.strftime('%d/%m/%Y') %></td>
+      <td><%= task.requirement %></td>
+      <td><%= link_to task.name, edit_task_path(task) %></td>
+      <td><%= task.note %></td> 
+    </tr> 
+  <% end %>
+
+</table>
+
+<%= render 'tasks/form' %>
+

@@ -10,12 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180216112733) do
+ActiveRecord::Schema.define(version: 20180529132732) do
+
+  create_table "projects", force: :cascade do |t|
+    t.string "name"
+    t.date "deadline"
+  end
 
   create_table "tasks", force: :cascade do |t|
     t.boolean "finish"
     t.string "name"
     t.text "note"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.date "expiration"
+    t.integer "project_id"
+    t.integer "requirement"
+    t.index ["project_id"], name: "index_tasks_on_project_id"
   end
 
 end

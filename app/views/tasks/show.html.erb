@@ -1,9 +1,25 @@
+<%= link_to 'Inicio', root_path %>
 
-  <p>
-    <strong> Tarea: <strong>
-    <%= @task&.name %>
-  </p>
-  <p>
-    <strong> Nota: <strong>
-    <%= @task&.note %>
-  </p>
+<h1> TAREA: <%= @task&.name %> </h1>
+
+<p>
+  <strong> Realizado: </strong>
+  <%= @task.finish %>
+</p>  
+
+<p>
+  <strong> Vencimiento: </strong>
+  <%= @task.expiration&.strftime('%d/%m/%Y') %>
+</p>
+
+<p>
+  <strong> Proyecto: </strong>
+  <%= link_to @task.project&.name, project_path(@task.project) %>
+</p>
+
+<p>
+  <strong> Nota: <strong>
+  <%= @task&.note %>
+</p>
+
+<%= link_to 'Editar', edit_task_path %>

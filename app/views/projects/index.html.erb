@@ -1,0 +1,11 @@
+<h1>Tus Proyectos</h1>
+
+<%= @projects.each do |project| %>
+  <%= link_to project.name, project_path(project) %>
+<% end %><br>
+
+<%= link_to :Añadir, new_project_path %> 
+
+<p>un listado de projectos</p>
+sort_by{ |project| project.name }.
+sort_by(&:name).
