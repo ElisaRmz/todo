@@ -1,3 +1,5 @@
+
+
 <%= form_for @task do |f| %>
 
   <p>
@@ -20,6 +22,6 @@
     <%= f.label :Nota %>
     <%= f.text_area :note %>
 
-    <%= f.submit %> 
+    <%= f.submit "Hacer", class: "btn btn-outline-primary" %> 
   </p>
 <% end %>

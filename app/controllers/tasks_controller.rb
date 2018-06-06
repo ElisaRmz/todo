@@ -27,7 +27,8 @@ class TasksController < ApplicationController
     @task = Task.find(params[:id])
     @task.update(task_params)
     
-    redirect_to @task if @task.save
+    @task.save
+    redirect_back fallback_location: :root
   end
 
   def destroy

@@ -1,4 +1,9 @@
-<%= link_to 'Inicio', root_path %>
+<nav aria-label="breadcrumb">
+  <ol class="breadcrumb">
+    <li class="breadcrumb-item"><a href="<%= root_path %>">Inicio</a></li>
+    <li class="breadcrumb-item active" aria-current="page">Proyecto</li>
+  </ol>
+</nav>
 
 <h1> PROYECTO: <%= @project.name %> </h1>
 
@@ -7,7 +12,7 @@
 <%= link_to 'Editar', edit_project_path(@project) %>
 <%= link_to 'Eliminar', project_path(@project), method: :delete, data: {confirm: '¿deseas eliminar el proyecto?'} %>
 
-<p style="color:red;"> Que salga el proyecto en el que estoy por defecto </p>
+<p style="color:red;"> Que salga el proyecto en el que estoy por defecto, al añadir una nueva tarea </p>
 
 <table>
 
@@ -21,7 +26,7 @@
 
   </tr>
 
-  <% @project.tasks&.each do |task| %>
+  <% @project.tasks&.sort_by{ |task| task.finish ? 1 : 0 }.each do |task| %>
     <tr>
       <td><%= task.finish %></td>
       <td><%= task.expiration&.strftime('%d/%m/%Y') %></td>
