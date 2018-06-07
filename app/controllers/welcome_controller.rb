@@ -1,6 +1,7 @@
 class WelcomeController < ApplicationController
+  helper WelcomeHelper
+  
   def index
-
     @projects = Project.all
     @project = Project.new
     @task = Task.new
@@ -14,6 +15,5 @@ class WelcomeController < ApplicationController
 
     #filter: elegido al azar
     #render json: @tasks (crea un api)
-
   end
 end

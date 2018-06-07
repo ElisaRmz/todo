@@ -6,7 +6,7 @@
   <%= link_to project.name, project_path(project) %> <br>
 <% end %>
 
-<h1>Tus tareas</h1>
+<h1>Tus tareas, Hoy: #{Date.current}</h1>
 
 <p style="color:red;"> Que salgan las tareas ordenadas por vencimiento, sort_by sirve cuando todos los campos están completos </p>
 <p style="color:red;"> Poner en gris las tareas completadas </p>
@@ -35,7 +35,7 @@
   <% @tasks.sort_by(&:requirement).each do |task| %>
     <tr>
       <td><%= task.finish %></td>
-      <td><%= task.expiration&.strftime('%d/%m/%Y') %></td>
+      <td style= <%= coloring_date(task.expiration) %> ><%= task.expiration&.strftime('%d/%m/%Y') %></td>
       <td><%= task.created_at.strftime('%d/%m/%Y') %></td>
       <td><%= task.requirement %></td>
       <td><%= task.project&.name %></td>
