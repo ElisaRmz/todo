@@ -1,9 +1,15 @@
 module WelcomeHelper
   def coloring_date(expiration)
-    if expiration == Date.current
+    return unless expiration # if expiration == nil
+                             #   return nil
+                             # end
+    case
+    when expiration > Date.current && expiration < Date.current + 7
+      "color:blue"
+    when expiration == Date.current
       "color:green"
-    else 
-        "color:red"
+    when expiration < Date.current
+      "color:red"
     end
   end
 end

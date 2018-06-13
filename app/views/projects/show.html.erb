@@ -29,7 +29,7 @@
   <% @project.tasks&.sort_by{ |task| task.finish ? 1 : 0 }.each do |task| %>
     <tr>
       <td><%= task.finish %></td>
-      <td><%= task.expiration&.strftime('%d/%m/%Y') %></td>
+      <td style= <%= coloring_date(task.expiration) %> ><%= task.expiration&.strftime('%d/%m/%Y') %></td>
       <td><%= task.created_at.strftime('%d/%m/%Y') %></td>
       <td><%= task.requirement %></td>
       <td><%= link_to task.name, edit_task_path(task) %></td>

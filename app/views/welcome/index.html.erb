@@ -2,16 +2,21 @@
 
 <%= render 'projects/form' %>
 
+<p style="color:red;"> Ver el número de tareas activas por proyecto </p>
+<p style="color:red;"> Añadir campos Activo/Inactivo y Terminado/Abierto </p>
+
 <% @projects.sort_by{ |project| project.name }.each do |project| %>
   <%= link_to project.name, project_path(project) %> <br>
 <% end %>
 
-<h1>Tus tareas, Hoy: #{Date.current}</h1>
+<h1>Tus tareas => Hoy: <%=Date.current.strftime('%d/%m/%Y')%></h1>
 
 <p style="color:red;"> Que salgan las tareas ordenadas por vencimiento, sort_by sirve cuando todos los campos están completos </p>
 <p style="color:red;"> Poner en gris las tareas completadas </p>
-<p style="color:red;"> Colocar en rojo las fechas pasadas y en azul cuando esté en fecha limite </p>
 <p style="color:red;"> Asignar un color a cada proyecto y que lo muestre en la tabla </p>
+<p style="color:red;"> Añadir tareas repetitivas, por dia, mes o año </p>
+<p style="color:red;"> Añadir imágenes de las acciones que necesito </p>
+<p style="color:red;"> Desactivar una acción hasta que termine una anterior, relacionar tareas </p>
 
 <%= render 'tasks/form' %>
 

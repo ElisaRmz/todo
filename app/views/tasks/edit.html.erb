@@ -10,3 +10,5 @@
 <%= render 'form' %>
 
 <%= link_to 'Eliminar', task_path(@task), method: :delete, data: {confirm: '¿Quieres eliminarlo?' } %>
+
+<p style="color:red;"> Al actualizar las tareas no hace el redirect_back, continúa en la vista de editar </p>
