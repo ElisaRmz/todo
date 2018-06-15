@@ -5,7 +5,9 @@
   </ol>
 </nav>
 
-<h1> PROYECTO: <%= @project.name %> </h1>
+<h1> PROYECTO: <%= @project.name %>; <%= @project.project_percentage %> % alcanzado </h1>
+
+<p style="color:red;"> Añadir campos Activo/Postpuesto y Cerrado/Abierto </p>
 
 <%= @project.deadline %><br>
 
@@ -17,23 +19,24 @@
 <table>
 
   <tr>
-    <th><%= 'Completado' %></th>
+
     <th><%= 'Vencimiento' %></th>
     <th><%= 'Creado' %></th>
     <th><%= 'Necesito' %></th>
     <th><%= 'Tarea' %></th>
     <th><%= 'Notas' %></th>
+    <th><%= 'Completado' %></th>
 
   </tr>
 
   <% @project.tasks&.sort_by{ |task| task.finish ? 1 : 0 }.each do |task| %>
     <tr>
-      <td><%= task.finish %></td>
-      <td style= <%= coloring_date(task.expiration) %> ><%= task.expiration&.strftime('%d/%m/%Y') %></td>
-      <td><%= task.created_at.strftime('%d/%m/%Y') %></td>
-      <td><%= task.requirement %></td>
-      <td><%= link_to task.name, edit_task_path(task) %></td>
-      <td><%= task.note %></td> 
+      <td style= <%= coloring_date(task.expiration, task.finish) %> ><%= task.expiration&.strftime('%d/%m/%Y') %></td>
+      <td style= <%= grey_finish_task(task.finish) %> ><%= task.created_at.strftime('%d/%m/%Y') %></td>
+      <td style= <%= grey_finish_task(task.finish) %> ><%= task.requirement %></td>
+      <td style= <%= grey_finish_task(task.finish) %> ><%= link_to task.name, edit_task_path(task) %></td>
+      <td style= <%= grey_finish_task(task.finish) %> ><%= task.note %></td> 
+      <td style= <%= grey_finish_task(task.finish) %> ><%= task.finish %></td>      
     </tr> 
   <% end %>
 
