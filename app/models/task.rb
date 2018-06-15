@@ -10,4 +10,12 @@ class Task < ApplicationRecord
     :Ordenador, 
     :Teléfono]
 
+  enum frecuency: [
+    :Puntual,
+    :Día,
+    :Mes,
+    :Trimestral,
+    :Semestras,
+    :Anual] 
+
 end

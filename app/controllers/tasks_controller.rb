@@ -47,7 +47,8 @@ private
       :expiration, 
       :note, 
       :finish,
-      :requirement)
+      :requirement,
+      :frecuency)
   end
 
 end

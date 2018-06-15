@@ -22,6 +22,7 @@
 
     <th><%= 'Vencimiento' %></th>
     <th><%= 'Creado' %></th>
+    <th><%= 'Frecuencia' %></th>
     <th><%= 'Necesito' %></th>
     <th><%= 'Tarea' %></th>
     <th><%= 'Notas' %></th>
@@ -33,6 +34,7 @@
     <tr>
       <td style= <%= coloring_date(task.expiration, task.finish) %> ><%= task.expiration&.strftime('%d/%m/%Y') %></td>
       <td style= <%= grey_finish_task(task.finish) %> ><%= task.created_at.strftime('%d/%m/%Y') %></td>
+      <td style= <%= grey_finish_task(task.finish) %> ><%= task.frecuency %></td>
       <td style= <%= grey_finish_task(task.finish) %> ><%= task.requirement %></td>
       <td style= <%= grey_finish_task(task.finish) %> ><%= link_to task.name, edit_task_path(task) %></td>
       <td style= <%= grey_finish_task(task.finish) %> ><%= task.note %></td> 

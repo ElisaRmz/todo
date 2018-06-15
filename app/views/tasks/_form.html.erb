@@ -9,6 +9,9 @@
     <%= f.label :Vencimiento %>
     <%= f.date_field :expiration %>
 
+    <%= f.label :Frecuencia %>
+    <%= f.collection_select :frecuency, Task.frecuencies, :first, :first %>
+
     <%= f.label :Realizado %>
     <%= f.check_box :finish %>    
   </p>  
@@ -22,6 +25,6 @@
     <%= f.label :Nota %>
     <%= f.text_area :note %>
 
-    <%= f.submit "Crear", class: "btn btn-outline-secondary" %> 
+    <%= f.submit "Hacer", class: "btn btn-outline-secondary" %> 
   </p>
 <% end %>

@@ -10,7 +10,6 @@
 
 <p style="color:red;"> Que salgan las tareas ordenadas por vencimiento, sort_by sirve cuando todos los campos están completos </p>
 <p style="color:red;"> Asignar un color a cada proyecto y que lo muestre en la tabla </p>
-<p style="color:red;"> Añadir tareas repetitivas, por dia, mes o año </p>
 <p style="color:red;"> Añadir imágenes de las acciones que necesito </p>
 <p style="color:red;"> Desactivar una acción hasta que termine una anterior, relacionar tareas </p>
 
@@ -24,7 +23,7 @@
 
   <tr>
     <th><%= 'Vencimiento' %></th>
-    <th><%= 'Creado' %></th>
+    <th><%= 'Frecuencia' %></th>
     <th><%= 'Necesito' %></th>
     <th><%= 'Proyecto' %></th>
     <th><%= 'Tarea' %></th>
@@ -35,7 +34,7 @@
   <% @tasks.sort_by(&:requirement).each do |task| %>
     <tr>
       <td style= <%= coloring_date(task.expiration, task.finish) %> ><%= task.expiration&.strftime('%d/%m/%Y') %></td>
-      <td style= <%= grey_finish_task(task.finish) %> ><%= task.created_at.strftime('%d/%m/%Y') %></td>
+      <td style= <%= grey_finish_task(task.finish) %> ><%= task.frecuency %></td>
       <td style= <%= grey_finish_task(task.finish) %> ><%= task.requirement %></td>
       <td style= <%= grey_finish_task(task.finish) %> ><%= task.project&.name %></td>
       <td style= <%= grey_finish_task(task.finish) %> ><%= link_to task.name, edit_task_path(task) %></td>
