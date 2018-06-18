@@ -9,7 +9,8 @@ class Project < ApplicationRecord
     tasks.where(finish: true)
   end
 
-  def project_percentage
+  def percentage_done
+    return 0.0 if tasks.empty?
     (finished_tasks.count.to_f / tasks.count * 100).ceil
   end
 end

@@ -5,7 +5,7 @@
   </ol>
 </nav>
 
-<h1> PROYECTO: <%= @project.name %>; <%= @project.project_percentage %> % alcanzado </h1>
+<h1> PROYECTO: <%= @project.name %>; <%= @project.percentage_done %> % alcanzado </h1>
 
 <p style="color:red;"> Añadir campos Activo/Postpuesto y Cerrado/Abierto </p>
 
@@ -27,18 +27,20 @@
     <th><%= 'Tarea' %></th>
     <th><%= 'Notas' %></th>
     <th><%= 'Completado' %></th>
+    <th><%= 'Inactivo' %></th>
 
   </tr>
 
-  <% @project.tasks&.sort_by{ |task| task.finish ? 1 : 0 }.each do |task| %>
+  <% @project.tasks&.sort_by{ |task| [task.finish ? 1:0, task.inactive ? 1:0, task.requirement] }.each do |task| %>
     <tr>
       <td style= <%= coloring_date(task.expiration, task.finish) %> ><%= task.expiration&.strftime('%d/%m/%Y') %></td>
-      <td style= <%= grey_finish_task(task.finish) %> ><%= task.created_at.strftime('%d/%m/%Y') %></td>
-      <td style= <%= grey_finish_task(task.finish) %> ><%= task.frecuency %></td>
-      <td style= <%= grey_finish_task(task.finish) %> ><%= task.requirement %></td>
-      <td style= <%= grey_finish_task(task.finish) %> ><%= link_to task.name, edit_task_path(task) %></td>
-      <td style= <%= grey_finish_task(task.finish) %> ><%= task.note %></td> 
-      <td style= <%= grey_finish_task(task.finish) %> ><%= task.finish %></td>      
+      <td style= <%= coloring_background(task.finish, task.inactive) %> ><%= task.created_at.strftime('%d/%m/%Y') %></td>
+      <td style= <%= coloring_background(task.finish, task.inactive) %> ><%= task.frecuency %></td>
+      <td style= <%= coloring_background(task.finish, task.inactive) %> ><%= task.requirement %></td>
+      <td style= <%= coloring_background(task.finish, task.inactive) %> ><%= link_to task.name, edit_task_path(task) %></td>
+      <td style= <%= coloring_background(task.finish, task.inactive) %> ><%= task.note %></td> 
+      <td style= <%= coloring_background(task.finish, task.inactive) %> ><%= task.finish %></td>      
+      <td style= <%= coloring_background(task.finish, task.inactive) %> ><%= task.inactive %></td> 
     </tr> 
   <% end %>
 

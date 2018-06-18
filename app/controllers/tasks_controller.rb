@@ -48,7 +48,8 @@ private
       :note, 
       :finish,
       :requirement,
-      :frecuency)
+      :frecuency,
+      :inactive)
   end
 
 end

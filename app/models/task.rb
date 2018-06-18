@@ -13,6 +13,7 @@ class Task < ApplicationRecord
   enum frecuency: [
     :Puntual,
     :Día,
+    :Semana,
     :Mes,
     :Trimestral,
     :Semestras,

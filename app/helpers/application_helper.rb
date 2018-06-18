@@ -16,7 +16,13 @@ module ApplicationHelper
     end
   end
 
-  def grey_finish_task(finish)
-    "background-color:lightgrey" if finish == true
+  def coloring_background(finish, inactive)
+    case 
+    when finish == true
+        "background-color:lightgrey"
+    when inactive == true 
+      "background-color:lightyellow"
+    end
   end
+  
 end
