@@ -2,7 +2,7 @@ class Task < ApplicationRecord
   belongs_to :project
 
   enum requirement: [ 
-    :-,
+    :Ninguno,
     :Alex, 
     :Casa, 
     :Email, 
