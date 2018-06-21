@@ -3,7 +3,11 @@
 <%= render 'projects/form' %>
 
 <% @projects.sort_by{ |project| project.name }.each do |project| %>
-  <%= link_to project.name, project_path(project) %> <%= project.unfinished_tasks.count %> ; <%= project.percentage_done %> ·
+  <button type="button" class="badge badge-light">
+   <%= link_to project.name, project_path(project) %>
+    <span class="badge badge-light"><%= project.unfinished_tasks.count %></span>
+    <span class="badge badge-light"><%= project.percentage_done %><%= '%' %></span>
+  </button>
 <% end %>
 
 <h1>Tus tareas => Hoy: <%=Date.current.strftime('%d/%m/%Y')%></h1>
