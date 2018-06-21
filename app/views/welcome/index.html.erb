@@ -8,7 +8,7 @@
 
 <h1>Tus tareas => Hoy: <%=Date.current.strftime('%d/%m/%Y')%></h1>
 
-<p style="color:red;"> Asignar un color a cada proyecto y que lo muestre en la tabla </p>
+<p style="color:red;"> Que muestre el color de un proyecto en la tabla </p>
 <p style="color:red;"> Añadir imágenes de las acciones que necesito </p>
 <p style="color:red;"> Desactivar una acción hasta que termine una anterior, relacionar tareas </p>
 
@@ -24,6 +24,7 @@
     <th><%= 'Vencimiento' %></th>
     <th><%= 'Frecuencia' %></th>
     <th><%= 'Necesito' %></th>
+    <th><%= 'Color' %></th>    
     <th><%= 'Proyecto' %></th>
     <th><%= 'Tarea' %></th>
     <th><%= 'Notas' %></th>
@@ -36,6 +37,7 @@
       <td style= <%= coloring_date(task.expiration, task.finish) %> ><%= task.expiration&.strftime('%d/%m/%Y') %></td>
       <td style= <%= coloring_background(task.finish, task.inactive) %> ><%= task.frecuency %></td>
       <td style= <%= coloring_background(task.finish, task.inactive) %> ><%= task.requirement %></td>
+      <td><%= task.project&.color %></td>
       <td style= <%= coloring_background(task.finish, task.inactive) %> ><%= task.project&.name %></td>
       <td style= <%= coloring_background(task.finish, task.inactive) %> ><%= link_to task.name, edit_task_path(task) %></td>
       <td style= <%= coloring_background(task.finish, task.inactive) %> ><%= task.note %></td> 

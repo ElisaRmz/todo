@@ -44,7 +44,9 @@ private
     params.require(:project).permit(
       {task_ids:[]},
       :name, 
-      :deadline)
+      :deadline,
+      :color
+      )
   end
 
 end

@@ -6,6 +6,9 @@
  
     <%= f.label :Vencimiento %>
     <%= f.date_field :deadline %>
+
+    <%= f.label :Color %>
+    <%= f.collection_select :color, Project.colors, :last, Proc.new { |o| o.first[:name] } %>
  
     <%= f.submit "Hacer", class: "btn btn-outline-secondary" %>
   </p>
